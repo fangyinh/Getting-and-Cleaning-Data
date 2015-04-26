@@ -35,9 +35,11 @@ colnames(mergedData)[1:2]<-c("subj_id","activity_id")
 mergedData$activity_id<-as.factor(mergedData$activity_id)
 
 # 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
-mean_idx<-grep("mean",names(all_data))
-std_idx<-grep("std",names(all_data))
-selectedData<-all_data[,c(mean_idx,std_idx)]
+mean_idx<-grep("-mean()",names(all_data))
+std_idx<-grep("-std()",names(all_data))
+
+temp<-all_data[, grepl(pattern="-mean()|-std()", names(all_data))]
+selectedData<-temp[,grep(pattern="meanFreq", x=names(temp),invert=TRUE)]
 
 # 3. Uses descriptive activity names to name the activities in the data set
 all_label <- factor(all_label$V1, levels=c(1,2,3,4,5,6),labels=c('WALKING','WALKING_UPSTAIRS','WALKING_DOWNSTAIRS','SITTING','STANDING','LAYING'))
