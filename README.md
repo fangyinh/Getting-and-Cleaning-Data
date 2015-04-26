@@ -5,6 +5,8 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
 2) a code book (CodeBook.md) describing the variables, the data, and the transformations of the raw data into the tidy data executed in the R script.
 
+3) the print-out (mean_subject_activity.txt) file of the tidy dataset
+
 ## Details:
 To run the R script, the working directory must contain folders of training dataset and test dataset from the experiment. 
 The R script does the followings:
